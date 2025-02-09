@@ -4,7 +4,7 @@
 
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Abhinand225/Hexnode-UEM.git
 cd your-repo
 
 # Install Dependencies
