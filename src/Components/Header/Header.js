@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 
@@ -80,7 +82,7 @@ const Header = ({ showButton }) => {
         )}
       </header>
 
-      {showButton &&
+      {(showButton && !mobileMenuOpen)  &&
         <div className={`${styles.mobileStickyHeader} ${mobileStickyClass}`}>
           <button className={styles.mobileStickyButton}> 14 DAY FREE TRIAL</button>
         </div>

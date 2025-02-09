@@ -55,7 +55,7 @@ const Platform = () => {
   };
 
   return (
-    <div className={styles.platformSection}>
+    <section className={styles.platformSection}>
       <div className={styles.container}>
         <h1 className={styles.title}>Multi-platform Endpoint Management</h1>
         <p className={styles.subtitle}>Devices of varying platforms? Our solution thrives in a diverse environment.</p>
@@ -65,6 +65,7 @@ const Platform = () => {
               src={platforms.find(p => p.id === activePanel)?.image}
               alt={`${activePanel} platform`}
               className={styles.platformImage}
+              loading='lazy'
             />
           </div>
           <div className={styles.accordionSection}>
@@ -86,6 +87,7 @@ const Platform = () => {
                       src={platform.image}
                       alt={`${platform.title} platform`}
                       className={styles.mobileImage}
+                      loading='lazy'
                     />
                     <p>{platform.content}</p>
                     <p className={styles.link}><a href='#'>Try Hexnode on your endpoints</a></p>
@@ -96,7 +98,7 @@ const Platform = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

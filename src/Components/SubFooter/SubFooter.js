@@ -5,7 +5,7 @@ import styles from './SubFooter.module.scss';
 function SubFooter() {
 
   return (
-    <div className={styles.section}>
+    <section className={styles.section}>
       <div className={styles.anchor}></div>
       <div className={styles.container}>
         <div className={styles.textContainer}>
@@ -22,7 +22,7 @@ function SubFooter() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

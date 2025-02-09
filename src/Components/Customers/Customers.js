@@ -5,11 +5,11 @@ import Companies from './Companies/Companies';
 
 function Customers() {
   return (
-    <div className={sytles.customersConatiner}>
+    <section className={sytles.customersConatiner}>
       <h2>What our customers say</h2>
       <Testimonials/>
       <Companies/>
-    </div>
+    </section>
   )
 }
 

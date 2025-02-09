@@ -84,7 +84,7 @@ const Testimonials = () => {
 
 
   return (
-    <div className={styles.sliderContainer}>
+    <section className={styles.sliderContainer}>
       <Slider {...settings}>
         {testimonials.map((testimonial) => (
           <div key={testimonial.id} className={styles.slide}>
@@ -94,6 +94,7 @@ const Testimonials = () => {
                   src={testimonial.image}
                   alt={`${testimonial.name} image`}
                   className={styles.image}
+                  loading='lazy'
                 />
               </div>
               <div className={styles.content}>
@@ -109,7 +110,7 @@ const Testimonials = () => {
           </div>
         ))}
       </Slider>
-    </div>
+    </section>
   );
 };
 

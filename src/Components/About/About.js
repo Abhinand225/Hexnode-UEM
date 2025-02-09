@@ -38,73 +38,75 @@ function About() {
         },
     ];
     return (
-        <div className={styles.whyHexnodeSection}>
+        <section className={styles.whyHexnodeSection} aria-labelledby="why-hexnode-heading">
             <div className={styles.WhyHexnodeContnr}>
-                <h2 className={styles.heading}>Why Hexnode?</h2>
+                <h2 id="why-hexnode-heading" className={styles.heading}>Why Hexnode?</h2>
                 <div className={styles.gridContainer}>
                     <div className={`${styles.grid1} ${styles.grid}`}>
                         {features.slice(0, 2).map((feature, index) => (
-                            <div key={index} className={styles.card}>
+                            <article key={index} className={styles.card} aria-labelledby={`feature-title-${index}`}>
                                 <div className={styles.cardContainer}>
-                                    <div className={styles.icon}>{feature.icon}
-                                        <h3 className={styles.title}>{feature.title}</h3>
+                                    <div className={styles.icon}>
+                                        {feature.icon}
+                                        <h3 id={`feature-title-${index}`} className={styles.title}>{feature.title}</h3>
                                     </div>
-
                                     <p className={styles.description}>{feature.description}</p>
-                                    <p className={styles.link}><a href='#'>{feature.link}</a></p>
+                                    <p className={styles.link}>
+                                        <a href="#" aria-label={`${feature.link} for ${feature.title}`}>{feature.link}</a>
+                                    </p>
                                 </div>
-                            </div>
+                            </article>
                         ))}
                     </div>
                     <div className={`${styles.grid2}`}>
-                        <img src={logo} alt=''/>
-                        <div className={`${styles.logoAnimation1} ${styles.lineAnimation} ${styles.animate}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928"><path id="path" d="M-18870.2-4879.633v-95.043c0-26.781-22.783-38.885-35.471-38.885h-141.02" transform="translate(19047.193 5014.062)" fill="none" stroke="#020a19" stroke-linecap="round" stroke-width="1" stroke-dasharray="7"></path></svg>
-                        </div>
-                        <div className={`${styles.logoAnimation2} ${styles.lineAnimation} ${styles.animate}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928"><path id="path" d="M-19046.7-4879.633v-95.043c0-26.781,22.783-38.885,35.471-38.885h141.02" transform="translate(19047.195 5014.062)" fill="none" stroke="#020a19" stroke-linecap="round" stroke-width="1" stroke-dasharray="7"></path></svg>
-                        </div>
-                        <div className={`${styles.logoAnimation3} ${styles.lineAnimation} ${styles.animate}`}>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="177"
-                                height="134.928"
-                                viewBox="0 0 177.49 134.928"
-                            >
-                                <path
-                                    id="path"
-                                    d="M-18870.2-5013.562v95.043c0,26.781-22.783,38.885-35.471,38.885h-141.02"
-                                    transform="translate(19047.193 5014.062)"
-                                    fill="none"
-                                    stroke="#020a19"
-                                    strokeLinecap="round"
-                                    strokeWidth="1"
-                                    strokeDasharray="7"
-                                />
-                            </svg>
-                        </div>
-                        <div className={`${styles.logoAnimation4} ${styles.lineAnimation} ${styles.animate}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928"><path id="path" d="M-19046.7-5013.562v95.043c0,26.781,22.783,38.885,35.471,38.885h141.02" transform="translate(19047.195 5014.062)" fill="none" stroke="#020a19" stroke-linecap="round" stroke-width="1" stroke-dasharray="7"></path></svg>
+                        <img src={logo} alt="Hexnode Logo" loading="lazy" />
+                        <div aria-hidden="true">
+                            <div className={`${styles.logoAnimation1} ${styles.lineAnimation} ${styles.animate}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928">
+                                    <path id="path" d="M-18870.2-4879.633v-95.043c0-26.781-22.783-38.885-35.471-38.885h-141.02" transform="translate(19047.193 5014.062)" fill="none" stroke="#020a19" strokeLinecap="round" strokeWidth="1" strokeDasharray="7"/>
+                                </svg>
+                            </div>
+                            <div className={`${styles.logoAnimation2} ${styles.lineAnimation} ${styles.animate}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928">
+                                    <path id="path" d="M-19046.7-4879.633v-95.043c0-26.781,22.783-38.885,35.471-38.885h141.02" transform="translate(19047.195 5014.062)" fill="none" stroke="#020a19" strokeLinecap="round" strokeWidth="1" strokeDasharray="7"/>
+                                </svg>
+                            </div>
+                            <div className={`${styles.logoAnimation3} ${styles.lineAnimation} ${styles.animate}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928">
+                                    <path id="path" d="M-18870.2-5013.562v95.043c0,26.781-22.783,38.885-35.471,38.885h-141.02" transform="translate(19047.193 5014.062)" fill="none" stroke="#020a19" strokeLinecap="round" strokeWidth="1" strokeDasharray="7"/>
+                                </svg>
+                            </div>
+                            <div className={`${styles.logoAnimation4} ${styles.lineAnimation} ${styles.animate}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="134.928" viewBox="0 0 177.49 134.928">
+                                    <path id="path" d="M-19046.7-5013.562v95.043c0,26.781,22.783,38.885,35.471,38.885h141.02" transform="translate(19047.195 5014.062)" fill="none" stroke="#020a19" strokeLinecap="round" strokeWidth="1" strokeDasharray="7"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div className={`${styles.grid3} ${styles.grid}`}>
                         {features.slice(2, 4).map((feature, index) => (
-                            <div key={index} className={styles.card}>
+                            <article key={index + 2} className={styles.card} aria-labelledby={`feature-title-${index + 2}`}>
                                 <div className={styles.cardContainer}>
-                                    <div className={styles.icon}>{feature.icon}
-                                        <h3 className={styles.title}>{feature.title}</h3>
+                                    <div className={styles.icon}>
+                                        {feature.icon}
+                                        <h3 id={`feature-title-${index + 2}`} className={styles.title}>{feature.title}</h3>
                                     </div>
-
                                     <p className={styles.description}>{feature.description}</p>
-                                    <p className={styles.link}><a href='#'>{feature.link}</a></p>
+                                    <p className={styles.link}>
+                                        <a href="#" aria-label={`${feature.link} for ${feature.title}`}>{feature.link}</a>
+                                    </p>
                                 </div>
-                            </div>
+                            </article>
                         ))}
                     </div>
                 </div>
-                <p className={styles.bottomLink}><a href='#'>Try Hexnode on your endpoints</a></p>
+                <p className={styles.bottomLink}>
+                    <a href="#" aria-label="Try Hexnode on your endpoints - Main call to action">
+                        Try Hexnode on your endpoints
+                    </a>
+                </p>
             </div>
-        </div>
+        </section>
     )
 }
 
