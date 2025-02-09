@@ -1,0 +1,363 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+
+
+.header {
+    background: $hexnode-primary-color;
+    transition: background 0s ease-in-out 0s, border-bottom-color .2s ease-in-out .1s, outline-color .2s ease-in-out .1s;
+    color: $hexnode-white;
+    padding-bottom: 5px;
+    position: sticky;
+    top: 0px;
+    z-index: 9;
+
+    &.sticky {
+        background-color: $hexnode-white;
+        color: $hexnode-primary-color;
+        transition: all .25s ease-in-out;
+        border-bottom: 1px solid $hexnode-dark-border;
+
+        .hamburger {
+            span {
+                background-color: $hexnode-primary-color !important;
+            }
+        }
+    }
+
+    @include desktop() {
+        &:hover {
+            background-color: $hexnode-white;
+            color: $hexnode-primary-color;
+            transition: all .25s ease-in-out;
+        }
+    }
+
+
+    .content {
+        @include container();
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .nav {
+        flex: 1;
+        margin-left: 30px;
+        font-family: $hexnode-primary-family;
+
+        .navList {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .navItem {
+                font-size: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .trialButton {
+        @include common_btn();
+    }
+
+    .mobileMenuToggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        .hamburger {
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: relative;
+
+            span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin-bottom: 5px;
+                position: relative;
+                background: $hexnode-white;
+                border-radius: 3px;
+                z-index: 1;
+                transform-origin: 5px 0px;
+                transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                    opacity 0.55s ease;
+
+                &:nth-child(1) {
+                    transform-origin: 0% 0%;
+                }
+
+                &:last-child(2) {
+                    transform-origin: 0% 100%;
+                }
+            }
+        }
+
+        &.mobileMenuToggleOpen {
+            .hamburger {
+                z-index: 1000;
+
+                span {
+                    opacity: 1;
+                    background-color: $hexnode-primary-color;
+                    transform: translateY(-14px) rotate(45deg);
+
+                    &:nth-last-child(2) {
+                        opacity: 0;
+                        transform: rotate(0deg) scale(0.2, 0.2);
+                    }
+
+                    &:nth-last-child(3) {
+                        transform: translateY(16px) rotate(-45deg);
+                    }
+                }
+            }
+
+        }
+    }
+
+   
+
+    @include tablet() {
+        .nav {
+            display: none;
+
+        }
+
+        .trialButton {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .mobileMenuToggle {
+            display: block;
+        }
+
+    }
+
+    @media (min-width: 640px) and (max-width: 1280px) {
+        .tabButton {
+            display: block !important;
+            min-height: 42px;
+            opacity: 1;
+            transform: translateY(0px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+    }
+}
+
+.mobileSidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100%;
+    background-color: $hexnode-white;
+    z-index: 100;
+    box-sizing: border-box;
+    overflow-y: auto;
+    animation: slideInFromRight 0.3s ease-in-out;
+
+    @include small() {
+        width: 100%;
+    }
+
+    .mobileMenuCloseButton {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-bottom: 1rem;
+
+        .hamburger {
+            z-index: 1000;
+
+            span {
+                opacity: 1;
+                background-color: $hexnode-primary-color;
+                transform: translateY(-14px) rotate(45deg);
+
+                &:nth-last-child(2) {
+                    opacity: 0;
+                    transform: rotate(0deg) scale(0.2, 0.2);
+                }
+
+                &:nth-last-child(3) {
+                    transform: translateY(16px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .mobileNavList {
+        font-size: 16px;
+        color: $hexnode-white;
+        font-family: $hexnode-primary-family;
+        line-height: 13px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        width: 100%;
+
+        @include desktop() {
+            flex-direction: row;
+            width: unset;
+        }
+
+        .closeBtn {
+            min-height: 63px;
+            line-height: 24px;
+            border-bottom: 1px solid $hexnode-dark-border;
+        }
+
+        .mobileNavItem {
+            font-size: 15px;
+            color: $hexnode-text-color;
+            line-height: 24px;
+            border-bottom: 1px solid $hexnode-light-border;
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 30px;
+            cursor: pointer;
+
+            @include desktop() {
+                color: $hexnode-white;
+                border: 0;
+                padding: 0;
+                cursor: default;
+
+                &:nth-child(even) {
+                    margin: 0 25px;
+                }
+            }
+        }
+
+        .navActions {
+            background: $hexnode-white;
+            max-width: 100%;
+            padding: 30px 30px 20px;
+
+            .mobTrialBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+                line-height: 24px;
+                color: $hexnode-white;
+                text-transform: uppercase;
+                white-space: nowrap;
+                border-radius: 3px;
+                padding: 10px 26px;
+                margin: 0;
+                transition: background-color 0.2s linear;
+                position: relative;
+                z-index: 1;
+                background-color: $hexnode-red;
+                text-decoration: none;
+            }
+
+            .mobLoginBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 20px 0 10px;
+                text-decoration: none;
+                cursor: pointer;
+                display: block;
+                font-size: 16px;
+                line-height: 24px;
+                white-space: nowrap;
+                padding: 10px 30px;
+                min-height: 48px;
+                border-radius: 3px;
+                text-align: center;
+                background-color: $hexnode-white;
+                color: $hexnode-text-color;
+                font-weight: 500;
+
+            }
+        }
+    }
+}
+
+@include tablet(){
+    .mobileSidebar {
+        display: block;
+    }
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 30px
+}
+
+.mobileStickyButton {
+    @include common_btn();
+    margin-right: 30px;
+}
+
+@media (min-width: 640px) {
+    .mobileStickyHeader {
+        display: none !important;
+    }
+}
+
+.mobileStickyHeader {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: $hexnode-white;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    transition: top 0.3s ease-in-out;
+    z-index: 10;
+    border-bottom: 1px solid $hexnode-dark-border;
+}
+
+.topZero {
+    top: 0;
+}
+
+.belowHeader {
+    top: 68px;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

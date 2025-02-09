@@ -1,0 +1,270 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+
+.whyHexnodeSection {
+    background-color: #F7F7F7;
+    text-align: center;
+    padding: 80px 0px;
+    font-family: $hexnode-primary-family;
+
+    @include mobile(){
+        padding: 60px 0px;
+    }
+
+    .WhyHexnodeContnr {
+        @include container();
+
+        .heading {
+            font-size: 40px;
+            font-weight: 700;
+            color: $hexnode-primary-color;
+            max-width: 800px;
+            margin: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+
+            @include mobile(){
+                font-size: 32px;
+                line-height: 40px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .gridContainer {
+            display: flex;
+            justify-content: center;
+            @include tablet() {
+                justify-content: space-between;
+            }
+            @include mobile() {
+                display: block;
+            }
+
+            .grid1 {
+                width: 35%;
+                z-index: 1;
+
+                @include tablet() {
+                    width: 48%;
+                }
+                @include mobile() {
+                    width: auto;
+                    max-width: 340px;
+                }
+            }
+
+            .grid2 {
+                display: none;
+                width: 30%;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                min-width: 300px;
+
+                @include desktop() {
+                    display: flex;
+                }
+
+                img {
+                    z-index: 1;
+                }
+
+                .lineAnimation {
+                    transform: translate(-200px, 40px);
+                    z-index: 0;
+
+                    svg {
+                        path {
+                            stroke-dasharray: 7;
+                            animation: moveDash 1s linear infinite;
+                        }
+                    }
+                }
+
+                .logoAnimation1 {
+                    position: absolute;
+                    top: 120px;
+                    left: 50%;
+
+                }
+
+                .logoAnimation2 {
+                    position: absolute;
+                    top: 120px;
+                    right: -210px;
+
+                }
+
+                .logoAnimation3 {
+                    position: absolute;
+                    bottom: 200px;
+                    left: 50%;
+
+                }
+
+                .logoAnimation4 {
+                    position: absolute;
+                    bottom: 200px;
+                    right: -210px;
+
+                }
+            }
+
+            .grid3 {
+                z-index: 1;
+                width: 35%;
+
+                @include tablet() {
+                    width: 48%;
+                }
+
+                @include mobile() {
+                    width: auto;
+                    max-width: 340px;
+                }
+            }
+        }
+
+        .grid {
+
+            @include mobile(){
+                margin: auto;
+            }
+            .card {
+                max-width: 480px;
+                height: 350px;
+                transition: all .3s ease-in-out;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                flex-basis: 50%;
+
+                @include tablet() {
+                    max-width: 100%;
+                    width: 100%;
+                    min-height: 350px;
+                    height: auto;
+                    display: flex;
+                    align-items: baseline;
+                }
+
+                @include mobile() {
+                    min-height: auto;
+                }
+
+                .cardContainer {
+                    padding: 40px;
+                    border-radius: 16px;
+                    background-color: #ffffff;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 12px;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+
+                    @include large(){
+                        padding: 20px;
+                    }
+
+                    .icon {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        font-size: 2rem;
+                        margin-bottom: 1rem;
+                        svg{
+                            @include large(){
+                                max-width: 28px;
+                            }
+                        }
+                        .title {
+                            font-size: 24px;
+                            line-height: 32px;
+                            font-weight: 700;
+                            margin-top: 0px;
+                            margin-bottom: 0.5rem;
+                            color: #1a1a1a;
+                            text-align: left;
+                            @include large(){
+                                font-size: 20px;
+                                margin-bottom: 0rem;
+                            }
+                        }
+                    }
+
+
+                    .description {
+                        font-size: 18px;
+                        color: #4a4a4a;
+                        line-height: 28px;
+                        margin: 0px;
+                        text-align: left;
+                        @include large(){
+                            font-size: 16px;
+                        }
+                    }
+
+                    .link{
+                        height: 0px;
+                        opacity: 0;
+                        transition: height 0.3s ease, opacity 0.3s ease; 
+
+                        a{
+                            text-align: left;
+                            color: $hexnode-red;
+                            text-decoration: none;
+                            font-weight: 600;
+                            font-size: 18px;
+                            @include large(){
+                                font-size: 16px;
+                            }
+                        }
+
+                        @include tablet(){
+                            height: auto;
+                            opacity: 1;
+                        }
+                        @include mobile(){
+                            display: none;
+                        }
+                    }
+
+                    &:hover{
+                        .link{
+                            height: 20px;
+                            opacity: 1;
+                        }
+                    }
+                }
+
+            }
+        }
+        .bottomLink{
+            margin: 0px;
+            display: none;
+            a{
+                text-align: left;
+                color: $hexnode-red;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            @include mobile(){
+                display: block;
+            }
+        }
+
+    }
+
+
+}
+
+@keyframes moveDash {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -100;
+    }
+}

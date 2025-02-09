@@ -1,0 +1,66 @@
+@import '../../../Styles/mixins';
+@import '../../../Styles/variables';
+
+.Companies {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  position: relative;
+
+  .sliderShadow {
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+    width: 120px;
+    z-index: 2;
+
+    &.leftSlider {
+      left: 0px;
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 36%, rgba(255,255,255,0) 100%);
+    }
+
+    &.rightSlider {
+      right: 0px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 64%, rgba(255,255,255,1) 100%);
+    }
+  }
+
+  @include large() {
+    padding-top: 80px;
+    padding-bottom: 10px;
+  }
+
+  .slick-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-arrow {
+    display: none !important; // Hides navigation arrows
+  }
+
+  .slick-dots {
+    display: none !important; // Hides dots
+  }
+}

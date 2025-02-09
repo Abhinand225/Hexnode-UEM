@@ -1,0 +1,102 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+
+.container {
+    @include container();
+    font-family: $hexnode-primary-family;
+    padding: 60px 0px;
+}
+
+.mainTitle {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 60px;
+    line-height: 1.3;
+    color: $hexnode-primary-color;
+
+    @include mobile() {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+
+    @include tablet() {
+        gap: 40px;
+    }
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.featureCard {
+    max-width: 340px;
+    margin: 0 auto;
+
+    @include desktop() {
+        max-width: 380px;
+    }
+}
+
+.imageContainer {
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    overflow: hidden;
+    width: 100%;
+    max-width: 380px;
+    max-height: 240px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    color: transparent;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #020a19;
+    padding: 20px 0 15px;
+    text-align: center;
+    margin: 0px;
+
+    @media (min-width: 768px) {
+        text-align: left;
+        padding: 40px 0 20px;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+.description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    text-align: center;
+    margin: 0px;
+
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+
+    @media (min-width: 1280px) {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}

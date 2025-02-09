@@ -1,0 +1,383 @@
+@import '../../Styles/mixins';
+@import '../../Styles/variables';
+
+
+.bannerContainer {
+  background-color: $hexnode-primary-color;
+
+  .banner {
+    @include container();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0px;
+    color: $hexnode-white;
+
+    @include tablet() {
+      flex-direction: column-reverse;
+      text-align: center;
+      padding: 30px 0px;
+    }
+
+    .textSection {
+      flex: 1;
+      padding-right: 2rem;
+      font-family: $hexnode-primary-family;
+
+      @include desktop() {
+        max-width: 554px;
+      }
+
+      @include tablet() {
+        padding-right: 0;
+      }
+
+      h1 {
+        color: rgba(191, 193, 197, 0.6);
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-align: center;
+
+        @include desktop() {
+          text-align: left;
+        }
+
+      }
+
+      h2 {
+        color: $hexnode-white;
+        font-size: 34px;
+        line-height: 44px;
+        text-align: center;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0px;
+
+        @media (min-width: 1024px) {
+          font-size: 42px;
+          line-height: 53px;
+        }
+
+        @media (min-width: 1280px) {
+          text-align: left;
+        }
+      }
+
+      p {
+        color: $hexnode-light-text-color;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+
+        @include desktop() {
+          text-align: left;
+        }
+      }
+
+      .form {
+        display: flex;
+        gap: 8px;
+
+        input {
+          max-width: 280px;
+          flex: 1;
+          font-size: 1rem;
+          border: none;
+          height: 52px;
+          border-radius: 3px;
+          padding: 0 10px;
+          outline: none;
+
+          &::placeholder {
+            opacity: 0.5;
+          }
+
+          @include mobile() {
+            max-width: none;
+            padding: 0px;
+            width: 100%;
+          }
+        }
+
+        button {
+          @include common_btn();
+          height: 53px;
+          font-size: 16px;
+          font-weight: 400;
+
+          @include mobile() {
+            max-width: 340px;
+            width: 100%;
+            margin-top: 20px;
+          }
+        }
+
+        @include tablet() {
+          justify-content: center;
+        }
+
+        @include mobile() {
+          display: block;
+          max-width: 340px;
+          margin: auto;
+        }
+      }
+    }
+
+    .imageSection {
+      flex: 1;
+      position: relative;
+      max-width: 610px;
+
+      .mainImage {
+        width: 100%;
+      }
+
+      .secondaryImage {
+        position: absolute;
+        pointer-events: none;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .groupWrapper {
+        display: flex;
+        background-color: #FCD598;
+        border-radius: 21px;
+        padding: 10px 20px 10px 45px;
+        position: absolute;
+        overflow: hidden;
+
+        @include mobile() {
+          padding: 5px 10px 5px 25px;
+        }
+
+        .circleBackground {
+          width: 33px;
+          height: 33px;
+
+          background-color: $hexnode-white;
+          border-radius: 21px;
+          position: absolute;
+          left: 2%;
+          top: 50%;
+          transform: translate(-2%, -50%);
+          transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+
+          @include mobile() {
+            width: 19px;
+            height: 19px;
+          }
+        }
+
+        .circleForeground {
+          width: 33px;
+          height: 33px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          left: 2%;
+          top: 50%;
+          transform: translate(-2%, -50%);
+          transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+
+          @include mobile() {
+            width: 19px;
+            height: 19px;
+          }
+
+          &.groupHover {
+            scale: 20;
+          }
+
+          .iconWrapper {
+            width: 14px;
+            height: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include mobile() {
+              width: 8px;
+              height: 4px;
+            }
+
+            svg {
+              width: 16.188px;
+              height: 11.021px;
+
+              path {
+                fill: none;
+                stroke-width: 2;
+              }
+            }
+          }
+        }
+
+        .text {
+          font-size: 8px;
+          line-height: 11px;
+          color: #020A19;
+          font-weight: 400;
+          text-align: left;
+          z-index: 1;
+
+          @media (min-width: 391px) {
+            font-size: 11px;
+            line-height: 14px;
+          }
+
+          @media (min-width: 480px) {
+            font-size: 16px;
+            line-height: 18px;
+          }
+
+          @media (min-width: 768px) {
+            font-size: 20px;
+            line-height: 21px;
+          }
+        }
+
+        &.passwordBadge {
+          top: 14%;
+          left: 6%;
+          background-color: #FCD598;
+          color: #020A19;
+
+          svg path {
+            stroke: #db962c;
+          }
+
+          &:hover {
+            .groupHover {
+              transform: scale(20);
+            }
+          }
+        }
+
+        &.kioskBadge {
+          top: 40%;
+          right: -6%;
+          background-color: #C3E1E7;
+          color: #020A19;
+
+          svg path {
+            stroke: #44aec4;
+          }
+
+          &:hover {
+            .groupHover {
+              transform: scale(20);
+            }
+          }
+
+          @include mobile() {
+            right: -1%;
+          }
+        }
+
+        &.deviceBadge {
+          right: 26%;
+          bottom: 13%;
+          background-color: #BCDCBE;
+          color: #020A19;
+          z-index: 2;
+
+          svg path {
+            stroke: #35943b;
+          }
+
+          &:hover {
+            .groupHover {
+              transform: scale(20);
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .badges {
+    font-size: 0.9rem;
+    color: rgb(255, 255, 255, 60%);
+    background-color: #1A1C2B;
+    font-family: $hexnode-primary-family;
+
+    .badgesContainer {
+      @include container();
+      padding: 30px 0px;
+
+      @include mobile() {
+        padding: 0px;
+      }
+
+
+      .allBadges {
+        margin-left: -45px;
+        margin-right: -45px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @include mobile() {
+          display: block;
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+
+        .singleBadge {
+          padding: 0px 45px;
+          max-width: 21%;
+          transform: translateY(0);
+          transition: transform .3s ease-out;
+
+          @include mobile() {
+            margin: auto;
+            max-width: 340px;
+            text-align: center;
+            padding: 40px 0px;
+          }
+
+          img {
+            height: 25px;
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+
+          p {
+            margin-bottom: 0px;
+            line-height: 22px;
+            font-size: 14px;
+          }
+        }
+
+        .badgeBorder {
+          background-color: rgba(255, 255, 255, 0.2);
+          flex-basis: 1px;
+          width: 1px;
+
+          @include mobile() {
+            width: 107px;
+            height: 1px;
+            margin: auto;
+          }
+        }
+      }
+
+    }
+  }
+}
